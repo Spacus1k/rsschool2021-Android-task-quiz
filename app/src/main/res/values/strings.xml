@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">Quiz</string>
+
+    <string name="ques1">0, …</string>
+    <string name="ques1_ans1">1</string>
+    <string name="ques1_ans2">2</string>
+    <string name="ques1_ans3">3</string>
+    <string name="ques1_ans4">4</string>
+    <string name="ques1_ans5">5</string>
+
+    <string name="ques2">0, 1, …</string>
+    <string name="ques2_ans1">1</string>
+    <string name="ques2_ans2">2</string>
+    <string name="ques2_ans3">3</string>
+    <string name="ques2_ans4">4</string>
+    <string name="ques2_ans5">5</string>
+
+    <string name="ques3">0, 1, 2, …</string>
+    <string name="ques3_ans1">1</string>
+    <string name="ques3_ans2">2</string>
+    <string name="ques3_ans3">3</string>
+    <string name="ques3_ans4">4</string>
+    <string name="ques3_ans5">5</string>
+
+    <string name="ques4">0, 1, 2, 3, …</string>
+    <string name="ques4_ans1">1</string>
+    <string name="ques4_ans2">2</string>
+    <string name="ques4_ans3">3</string>
+    <string name="ques4_ans4">4</string>
+    <string name="ques4_ans5">5</string>
+
+    <string name="ques5">0, 1, 2, 3, 4, …</string>
+    <string name="ques5_ans1">1</string>
+    <string name="ques5_ans2">2</string>
+    <string name="ques5_ans3">3</string>
+    <string name="ques5_ans4">4</string>
+    <string name="ques5_ans5">5</string>
 </resources>

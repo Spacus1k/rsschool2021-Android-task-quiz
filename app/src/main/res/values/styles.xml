@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="UnclickableeButton" >
+        <item name="backgroundTint">#978F88</item>
+        <item name="android:textColor">#534F4F</item>
+    </style>
+    
+</resources>
