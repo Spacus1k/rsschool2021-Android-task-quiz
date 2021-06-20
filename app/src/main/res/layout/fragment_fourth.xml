@@ -87,31 +87,31 @@
                     android:id="@+id/option_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ques2_ans1" />
+                    android:text="@string/ques4_ans1" />
 
                 <RadioButton
                     android:id="@+id/option_two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ques2_ans2" />
+                    android:text="@string/ques4_ans2" />
 
                 <RadioButton
                     android:id="@+id/option_three"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ques2_ans3" />
+                    android:text="@string/ques4_ans3" />
 
                 <RadioButton
                     android:id="@+id/option_four"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ques2_ans4" />
+                    android:text="@string/ques4_ans4" />
 
                 <RadioButton
                     android:id="@+id/option_five"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ques2_ans5" />
+                    android:text="@string/ques4_ans5" />
 
             </RadioGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>

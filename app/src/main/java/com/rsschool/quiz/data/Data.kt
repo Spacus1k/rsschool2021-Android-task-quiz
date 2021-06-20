@@ -7,11 +7,11 @@ class Data {
     companion object {
         var quiz = Quiz(
             arrayOf(
+                AnswersIndices.FOURTH_ANS,
                 AnswersIndices.FIRST_ANS,
                 AnswersIndices.SECOND_ANS,
                 AnswersIndices.THIRD_ANS,
-                AnswersIndices.FOURTH_ANS,
-                AnswersIndices.FIFTH_ANS
+                AnswersIndices.FOURTH_ANS
             )
         )
     }

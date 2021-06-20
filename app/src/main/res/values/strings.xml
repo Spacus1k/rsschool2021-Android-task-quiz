@@ -1,38 +1,38 @@
 <resources>
     <string name="app_name">Quiz</string>
 
-    <string name="ques1">0, …</string>
-    <string name="ques1_ans1">1</string>
-    <string name="ques1_ans2">2</string>
-    <string name="ques1_ans3">3</string>
-    <string name="ques1_ans4">4</string>
-    <string name="ques1_ans5">5</string>
+    <string name="ques1">Как звали работяг, которым перупутали зарплаты?</string>
+    <string name="ques1_ans1">Биба и Боба</string>
+    <string name="ques1_ans2">Игорь и Макс</string>
+    <string name="ques1_ans3">Тузик и Шарик</string>
+    <string name="ques1_ans4">Пупа и Лупа</string>
+    <string name="ques1_ans5">Том и Джери</string>
 
-    <string name="ques2">0, 1, …</string>
-    <string name="ques2_ans1">1</string>
-    <string name="ques2_ans2">2</string>
-    <string name="ques2_ans3">3</string>
-    <string name="ques2_ans4">4</string>
-    <string name="ques2_ans5">5</string>
+    <string name="ques2">Сколько лет длилась столетняя война?</string>
+    <string name="ques2_ans1">116</string>
+    <string name="ques2_ans2">100</string>
+    <string name="ques2_ans3">85</string>
+    <string name="ques2_ans4">99</string>
+    <string name="ques2_ans5">90</string>
 
-    <string name="ques3">0, 1, 2, …</string>
-    <string name="ques3_ans1">1</string>
-    <string name="ques3_ans2">2</string>
-    <string name="ques3_ans3">3</string>
-    <string name="ques3_ans4">4</string>
-    <string name="ques3_ans5">5</string>
+    <string name="ques3">Какого цвета волосы у дедушки Ленина?</string>
+    <string name="ques3_ans1">русые</string>
+    <string name="ques3_ans2">рыжие</string>
+    <string name="ques3_ans3">каштановые</string>
+    <string name="ques3_ans4">черные</string>
+    <string name="ques3_ans5">революционные</string>
 
-    <string name="ques4">0, 1, 2, 3, …</string>
-    <string name="ques4_ans1">1</string>
-    <string name="ques4_ans2">2</string>
-    <string name="ques4_ans3">3</string>
-    <string name="ques4_ans4">4</string>
-    <string name="ques4_ans5">5</string>
+    <string name="ques4">Я пришел дать эту песню из мира … </string>
+    <string name="ques4_ans1">твоей мечты</string>
+    <string name="ques4_ans2">потустороннего</string>
+    <string name="ques4_ans3">грез</string>
+    <string name="ques4_ans4">по-соседству</string>
+    <string name="ques4_ans5">комиксов</string>
 
-    <string name="ques5">0, 1, 2, 3, 4, …</string>
-    <string name="ques5_ans1">1</string>
-    <string name="ques5_ans2">2</string>
-    <string name="ques5_ans3">3</string>
-    <string name="ques5_ans4">4</string>
-    <string name="ques5_ans5">5</string>
+    <string name="ques5">Границы ключ …</string>
+    <string name="ques5_ans1">закинут за кровать</string>
+    <string name="ques5_ans2">потерян безвозвратно</string>
+    <string name="ques5_ans3">украден цыганами</string>
+    <string name="ques5_ans4">переломлен пополам</string>
+    <string name="ques5_ans5">лежит в моем кармане</string>
 </resources>
