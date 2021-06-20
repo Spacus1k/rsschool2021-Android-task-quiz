@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.rsschool.quiz.presentation.MainActivity
 import com.rsschool.quiz.R
 import com.rsschool.quiz.data.Data
@@ -25,7 +26,10 @@ class ThirdTicketFragment : Fragment(), IQuestionNumber {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as MainActivity).theme.applyStyle(R.style.Theme_Quiz_Third, true)
+        activity?.let {
+            it.setTheme(R.style.Theme_Quiz_ThirdDeepGreen)
+            it.window.statusBarColor = ContextCompat.getColor(it, R.color.deep_green_100_dark)
+        }
         binding = FragmentThirdBinding.inflate(inflater, container, false)
         return binding?.root
     }

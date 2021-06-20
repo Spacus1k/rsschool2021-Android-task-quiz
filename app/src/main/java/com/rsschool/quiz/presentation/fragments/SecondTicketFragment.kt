@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.rsschool.quiz.presentation.MainActivity
 import com.rsschool.quiz.R
@@ -25,7 +26,10 @@ class SecondTicketFragment : Fragment(), IQuestionNumber {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as MainActivity).theme.applyStyle(R.style.Theme_Quiz_Second, true)
+        activity?.let {
+            it.setTheme(R.style.Theme_Quiz_SecondYellow)
+            it.window.statusBarColor = ContextCompat.getColor(it, R.color.yellow_100_dark)
+        }
         binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding?.root
     }

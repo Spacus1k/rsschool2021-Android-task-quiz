@@ -10,6 +10,7 @@ import com.rsschool.quiz.domain.AnswersIndices
 import com.rsschool.quiz.data.Data
 import com.rsschool.quiz.databinding.FragmentFirstBinding
 import com.rsschool.quiz.domain.IQuestionNumber
+import com.rsschool.quiz.domain.Quiz
 import com.rsschool.quiz.presentation.MainActivity
 
 class FirstTicketFragment : Fragment(), IQuestionNumber {

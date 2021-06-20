@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.rsschool.quiz.R
 import com.rsschool.quiz.data.Data
@@ -25,6 +26,10 @@ class FinishScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.let {
+            it.setTheme(R.style.Theme_Quiz_SecondYellow)
+            it.window.statusBarColor = ContextCompat.getColor(it, R.color.black)
+        }
         binding = FragmentFinishScreenBinding.inflate(inflater, container, false)
         return binding?.root
     }
