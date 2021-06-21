@@ -10,10 +10,10 @@
 
     <string name="ques2">Сколько лет длилась столетняя война?</string>
     <string name="ques2_ans1">116</string>
-    <string name="ques2_ans2">100</string>
-    <string name="ques2_ans3">85</string>
-    <string name="ques2_ans4">99</string>
-    <string name="ques2_ans5">90</string>
+    <string name="ques2_ans2">105</string>
+    <string name="ques2_ans3">110</string>
+    <string name="ques2_ans4">100</string>
+    <string name="ques2_ans5">99</string>
 
     <string name="ques3">Какого цвета волосы у дедушки Ленина?</string>
     <string name="ques3_ans1">русые</string>

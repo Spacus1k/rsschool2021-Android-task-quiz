@@ -1,36 +1,44 @@
 package com.rsschool.quiz.presentation.fragments
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import com.rsschool.quiz.presentation.MainActivity
+import androidx.fragment.app.Fragment
 import com.rsschool.quiz.R
-import com.rsschool.quiz.data.Data
 import com.rsschool.quiz.databinding.FragmentFifthBinding
-import com.rsschool.quiz.domain.AnswersIndices
+import com.rsschool.quiz.domain.AnswerModel
+import com.rsschool.quiz.domain.AnswersIndexes
 import com.rsschool.quiz.domain.IQuestionNumber
+import com.rsschool.quiz.domain.QuizInteractor
+import com.rsschool.quiz.presentation.QuizActivity
+import com.rsschool.quiz.presentation.utils.clearBackStack
+import com.rsschool.quiz.presentation.utils.openFragment
+import com.rsschool.quiz.presentation.utils.setTheme
 
 
 class FifthTicketFragment : Fragment(), IQuestionNumber {
 
-    private var binding: FragmentFifthBinding? = null
-    override val currentQuestionNumber: Int = 5
-
     companion object {
         fun newInstance() = FifthTicketFragment()
+    }
+
+    override val currentQuestionNumber: Int = 5
+    private var activity: QuizActivity? = null
+    private var binding: FragmentFifthBinding? = null
+    private val quizInteractor = QuizInteractor()
+
+    override fun onAttach(context: Context) {
+        activity = getActivity() as QuizActivity
+        super.onAttach(context)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.let {
-            it.setTheme(R.style.Theme_Quiz_FifthRed)
-            it.window.statusBarColor = ContextCompat.getColor(it, R.color.red_100_dark)
-        }
+        activity?.let { setTheme(it, R.style.Theme_Quiz_FifthRed, R.color.red_100_dark) }
         binding = FragmentFifthBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -48,77 +56,84 @@ class FifthTicketFragment : Fragment(), IQuestionNumber {
 
     private fun initClickListener(): View.OnClickListener {
         return View.OnClickListener { view ->
-            when (view.id) {
-                R.id.submit_button -> {
-                    (activity as MainActivity).clearBackStack()
-                    (activity as MainActivity).openFragment(FinishScreenFragment.newInstance())
-                }
-                R.id.previous_button -> (activity as MainActivity).onBackPressed()
-                R.id.toolbar -> (activity as MainActivity).onBackPressed()
+            activity?.let {
+                when (view.id) {
+                    R.id.submit_button -> {
+                        clearBackStack(it.supportFragmentManager)
+                        openFragment(
+                            it.supportFragmentManager,
+                            FinishScreenFragment.newInstance()
+                        )
+                    }
+                    R.id.previous_button -> it.onBackPressed()
+                    R.id.toolbar -> it.onBackPressed()
 
-                R.id.option_one -> setAnswer(
-                    Pair(
-                        AnswersIndices.FIRST_ANS,
-                        resources.getString(R.string.ques5_ans1)
+                    R.id.option_one -> setAnswer(
+                        AnswerModel(
+                            AnswersIndexes.FIRST,
+                            resources.getString(R.string.ques5_ans1)
+                        )
                     )
-                )
-                R.id.option_two -> setAnswer(
-                    Pair(
-                        AnswersIndices.SECOND_ANS,
-                        resources.getString(R.string.ques5_ans2)
+                    R.id.option_two -> setAnswer(
+                        AnswerModel(
+                            AnswersIndexes.SECOND,
+                            resources.getString(R.string.ques5_ans2)
+                        )
                     )
-                )
-                R.id.option_three -> setAnswer(
-                    Pair(
-                        AnswersIndices.THIRD_ANS,
-                        resources.getString(R.string.ques5_ans3)
+                    R.id.option_three -> setAnswer(
+                        AnswerModel(
+                            AnswersIndexes.THIRD,
+                            resources.getString(R.string.ques5_ans3)
+                        )
                     )
-                )
-                R.id.option_four -> setAnswer(
-                    Pair(
-                        AnswersIndices.FOURTH_ANS,
-                        resources.getString(R.string.ques5_ans4)
+                    R.id.option_four -> setAnswer(
+                        AnswerModel(
+                            AnswersIndexes.FOURTH,
+                            resources.getString(R.string.ques5_ans4)
+                        )
                     )
-                )
-                R.id.option_five -> setAnswer(
-                    Pair(
-                        AnswersIndices.FIFTH_ANS,
-                        resources.getString(R.string.ques5_ans5)
+                    R.id.option_five -> setAnswer(
+                        AnswerModel(
+                            AnswersIndexes.FIFTH,
+                            resources.getString(R.string.ques5_ans5)
+                        )
                     )
-                )
+                }
             }
         }
     }
 
-    private fun setAnswer(answer: Pair<AnswersIndices, String>) {
-        Data.quiz.setAnswer(this, answer)
+    private fun setAnswer(answer: AnswerModel) {
+        quizInteractor.setAnswer(this, answer)
         binding?.let { it.submitButton.isEnabled = true }
     }
 
     private fun initButtons(listener: View.OnClickListener) {
-        binding?.let {
-            it.submitButton.setOnClickListener(listener)
-            it.submitButton.isEnabled = false
-            it.toolbar.setOnClickListener(listener)
-            it.previousButton.setOnClickListener(listener)
-            it.optionOne.setOnClickListener(listener)
-            it.optionTwo.setOnClickListener(listener)
-            it.optionThree.setOnClickListener(listener)
-            it.optionFour.setOnClickListener(listener)
-            it.optionFive.setOnClickListener(listener)
+        binding?.apply {
+            submitButton.setOnClickListener(listener)
+            submitButton.isEnabled = false
+            toolbar.setOnClickListener(listener)
+            previousButton.setOnClickListener(listener)
+            optionOne.setOnClickListener(listener)
+            optionTwo.setOnClickListener(listener)
+            optionThree.setOnClickListener(listener)
+            optionFour.setOnClickListener(listener)
+            optionFive.setOnClickListener(listener)
         }
     }
 
     private fun checkPreviousAnswer() {
-        if (Data.quiz.getAnswerIndex(this.currentQuestionNumber) != null) {
-            binding?.let { it.submitButton.isEnabled = true }
+        binding?.apply {
+            if (quizInteractor.getAnswerIndex(this@FifthTicketFragment.currentQuestionNumber) != null) {
+                this.submitButton.isEnabled = true
 
-            when (Data.quiz.getAnswerIndex(this.currentQuestionNumber)) {
-                AnswersIndices.FIRST_ANS -> binding?.let { it.optionOne.isChecked = true }
-                AnswersIndices.SECOND_ANS -> binding?.let { it.optionTwo.isChecked = true }
-                AnswersIndices.THIRD_ANS -> binding?.let { it.optionThree.isChecked = true }
-                AnswersIndices.FOURTH_ANS -> binding?.let { it.optionFour.isChecked = true }
-                AnswersIndices.FIFTH_ANS -> binding?.let { it.optionFive.isChecked = true }
+                when (quizInteractor.getAnswerIndex(this@FifthTicketFragment.currentQuestionNumber)) {
+                    AnswersIndexes.FIRST -> this.optionOne.isChecked = true
+                    AnswersIndexes.SECOND -> this.optionTwo.isChecked = true
+                    AnswersIndexes.THIRD -> this.optionThree.isChecked = true
+                    AnswersIndexes.FOURTH -> this.optionFour.isChecked = true
+                    AnswersIndexes.FIFTH -> this.optionFive.isChecked = true
+                }
             }
         }
     }

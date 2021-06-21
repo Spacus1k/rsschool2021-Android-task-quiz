@@ -1,14 +1,14 @@
 package com.rsschool.quiz.domain
 
-class Quiz(private val rightAnswers: Array<AnswersIndices>) {
+class Quiz(private val rightAnswers: Array<AnswersIndexes>) {
 
     companion object {
         const val NUMBER_OF_QUESTIONS = 5
     }
 
-    private var answersList = mutableListOf<Pair<AnswersIndices, String>>()
+    var answersList = mutableListOf<AnswerModel>()
 
-    fun setAnswer(questionNumber: IQuestionNumber, answer: Pair<AnswersIndices, String>) {
+    fun setAnswer(questionNumber: IQuestionNumber, answer: AnswerModel) {
         if (questionNumber.currentQuestionNumber - 1 >= answersList.size) {
             answersList.add(answer)
         } else {
@@ -16,28 +16,24 @@ class Quiz(private val rightAnswers: Array<AnswersIndices>) {
         }
     }
 
-    fun getAnswerIndex(numberAnswer: Int): AnswersIndices? {
-        return if (numberAnswer - 1 >= answersList.size)
-            null
+    fun getAnswerIndex(numberAnswer: Int): AnswersIndexes? {
+        return if (numberAnswer - 1 < answersList.size)
+            answersList[numberAnswer - 1].answerIndex
         else
-            answersList[numberAnswer - 1].first
+            null
     }
 
     fun getAnswerText(numberAnswer: Int): String {
-        return if (numberAnswer - 1 >= answersList.size)
-            ""
+        return if (numberAnswer - 1 < answersList.size)
+            answersList[numberAnswer - 1].answerText
         else
-            answersList[numberAnswer - 1].second
-    }
-
-    fun removeAnswers() {
-        answersList = mutableListOf()
+            ""
     }
 
     fun getGrade(): Int {
         var counter = 0
-        answersList.forEachIndexed { index, _ ->
-            if (answersList[index].first == rightAnswers[index]) {
+        answersList.forEachIndexed { index, item ->
+            if (item.answerIndex == rightAnswers[index]) {
                 counter++
             }
         }
